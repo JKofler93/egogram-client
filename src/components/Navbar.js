@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fontawesome/react-fontawesome'
+import { RiHome2Line, RiAddBoxLine, RiLogoutBoxRLine } from 'react-icons/ri'
+import { CgProfile } from 'react-icons/cg' 
+import styles from './styles/NavbarStyles.css'
 
+function Navbar({ logutHandler }) {
 
-function Navbar() {
     return (
         <div className="navbar">
             <div className="app-logo">
@@ -11,16 +13,18 @@ function Navbar() {
             </div>
             <div className="search-bar">
                 <form>
-                    <input/>
+                    <input 
+                        type="text"
+                        placeholder="Search"
+                    />
                 </form>
             </div>
-            <div className="right-side">
-                <h3>Post modal</h3>
-                <h3>NavLink to Home</h3> 
-                <h3>NavLink to Current users profile</h3>
-                <h3>NavLink to Logout</h3>
+            <div className="navbar-icons">
+                <RiAddBoxLine/>
+                <NavLink to="/home"><RiHome2Line/></NavLink>
+                <NavLink to="/profile"><CgProfile/></NavLink>
+                <NavLink to="/login" onClick={logutHandler}><RiLogoutBoxRLine/></NavLink>
             </div>
-            
         </div>
     )
 }

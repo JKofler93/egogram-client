@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
+import PostContainer from './PostContainer'
 
 function Home({ user }) {
     const [currentUser, setCurrentUser] = useState(user)
-    const [homePosts, setHomePosts] = useState(user)
+    const [homePosts, setHomePosts] = useState([])
 
-
+// console.log(currentUser.id)
     useEffect(() => {
         getHomePosts()
     }, [])
@@ -18,19 +19,22 @@ function Home({ user }) {
                 'Accepts': 'application/json'
             }
         }
-        fetch(`http://localhost:3000/users/${user.id}/home`, configObj)
+        fetch(`http://localhost:3000/users/${currentUser.id}/home`, configObj)
             .then(res => res.json())
             .then(posts => {
-                console.log(posts)
+                // console.log(posts)
                 console.log(posts.posts)
                 setHomePosts(posts.posts)
                 console.log(homePosts)
             })
-    }
-    console.log(user)
+        }
+        
+        const postsArray = homePosts.map(post => <PostContainer key={post.id} post={post}/>)
+    console.log(homePosts)
+    
     return (
-        <div>
-            
+        <div className="post-container">
+            {postsArray}
         </div>
     )
 }

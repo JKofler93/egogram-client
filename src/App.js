@@ -47,7 +47,7 @@ function App() {
   
   return (
     <div className="App">
-    {user && <Navbar/>}
+    {user && <Navbar logutHandler={logutHandler}/>}
       <Switch>
         <Route exact path='/home'>
           <Home
