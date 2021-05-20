@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 function PostForm() {
-    const [user_id, setUserId] = useState(1)
+    const [user_id, setUserId] = useState(1) //change to currentUser, setCurrentUser
     const [content, setContent] = useState("");
     const [post_image, setPostImage] = useState(null);
 
