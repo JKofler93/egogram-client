@@ -1,0 +1,10 @@
+.like-button {
+    background: none;
+    font-size: x-large;
+    border: none;
+}
+
+.like-button:hover {
+    cursor: pointer;
+    color: none;
+}

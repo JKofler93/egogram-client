@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 
-function PostForm() {
-    const [user_id, setUserId] = useState(1) //change to currentUser, setCurrentUser
+
+function PostForm({ user, getHomePosts }) {
     const [content, setContent] = useState("");
     const [post_image, setPostImage] = useState(null);
 
     const handleSubmit = (e) => {
         e.preventDefault()
         const formData = new FormData();
-        formData.append('user_id', user_id)
+        formData.append('user_id', user.id)
         formData.append('content', content);
         formData.append('post_image', post_image);
 
@@ -16,8 +16,17 @@ function PostForm() {
             method: "POST",
             body: formData
         })
-        .catch(error => console.log(error))
-
+        .then(res => res.json())
+        .then(post => {
+            // setHomePosts(post.post)
+            getHomePosts()
+            setContent("")
+            setPostImage(null)
+        })
+        // .then(() => {
+        //     setContent("")
+        //     setPostImage(null)
+        // })
     }
 
     return (
@@ -39,9 +48,7 @@ function PostForm() {
                     onChange={e => setPostImage(e.target.files[0])}
                 />
 
-                <input
-                    type="submit"
-                />
+                <button type="submit">submit</button>
             </form>
         </div>
     )

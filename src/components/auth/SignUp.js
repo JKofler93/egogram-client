@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import styles from '../styles/LoginStyles.css';
-import { NavLink, useHistory } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 
-function SignUp() {
+function SignUp({ loginUser }) {
     const [username, setUsername] = useState("")
     const [bio, setBio] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [profile_image, setProfileImage] = useState(null);
-    const history = useHistory()
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -23,6 +22,14 @@ function SignUp() {
         fetch("http://localhost:3000/users", {
             method: "POST",
             body: formData
+        })
+        .then(res => res.json())
+        .then(userData => {
+            if(userData.user) {
+                loginUser(userData.user)
+                localStorage.setItem("token", userData.jwt)
+                localStorage.setItem("userId", userData.user.id)
+            }
         })
         .catch(error => console.log(error))
     }

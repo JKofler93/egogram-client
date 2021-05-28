@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { RiHome2Line, RiAddBoxLine, RiLogoutBoxRLine } from 'react-icons/ri'
 import { CgProfile } from 'react-icons/cg' 
-import styles from './styles/NavbarStyles.css'
+import styles from '../styles/NavbarStyles.css'
 
-function Navbar({ logutHandler }) {
+function Navbar({ logoutHandler }) {
 
     return (
         <div className="navbar">
@@ -23,7 +23,7 @@ function Navbar({ logutHandler }) {
                 <RiAddBoxLine/>
                 <NavLink to="/home"><RiHome2Line/></NavLink>
                 <NavLink to="/profile"><CgProfile/></NavLink>
-                <NavLink to="/login" onClick={logutHandler}><RiLogoutBoxRLine/></NavLink>
+                <NavLink to="/login" onClick={logoutHandler}><RiLogoutBoxRLine/></NavLink>
             </div>
         </div>
     )

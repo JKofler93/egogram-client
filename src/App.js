@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import {BrowserRouter as Router, Redirect, Route, Switch, useHistory, useLocation } from "react-router-dom";
-import PostForm from './components/PostForm';
 import SignUp from './components/auth/SignUp';
-import Home from './components/Home'
+import Home from './components/home/Home'
 import Login from './components/auth/Login';
-import Navbar from './components/Navbar';
+import Navbar from './components/app/Navbar';
 import './App.css';
 
 function App() {
@@ -22,9 +21,7 @@ function App() {
         })
         .then(res => res.json())
         .then(userData => {
-          // console.log(userData)
           // console.log(userData.user)
-          // console.log(userData.user.id)
           setUser(userData.user);
           // console.log(user)
         })
@@ -38,16 +35,16 @@ function App() {
   }
 
   // Logs out Username
-  const logutHandler = () => {
+  const logoutHandler = () => {
     localStorage.clear("token")
     history.push('/login')
-    setUser("")
+    setUser(null)
   }
 
   
   return (
     <div className="App">
-    {user && <Navbar logutHandler={logutHandler}/>}
+    {/* {user && <Navbar logoutHandler={logoutHandler}/>} */}
       <Switch>
         <Route exact path='/home'>
           <Home
@@ -60,7 +57,7 @@ function App() {
         </Route>
 
         <Route exact path='/'>
-          <SignUp/>
+          <SignUp loginUser={loginUser}/>
         </Route>
 
       </Switch>
