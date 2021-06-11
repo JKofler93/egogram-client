@@ -1,6 +1,4 @@
-body {
-    background: #fafafa;
-}
+
 
 .navbar {
     background-color: #ffffff;
@@ -19,7 +17,7 @@ body {
     /* animation magic */
     transition: all 0.4s ease-in-out;
     -webkit-transition: all 0.4s ease-in-out;
-    -moz-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out; 
 }
 
 .search-bar {
@@ -40,9 +38,10 @@ body {
 .search-bar input:focus {
     outline: none;
 }
+
 .search-bar input::placeholder {
     text-align: center;
-}
+} 
 
 
 

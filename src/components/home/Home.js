@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PostForm from '../home/PostForm';
-import Post from './Post'
+import Post from './Post';
+import styles from '../styles/HomeStyles.css'
 
 function Home({ user }) {
     const [posts, setPosts] = useState([])
@@ -54,13 +55,18 @@ function Home({ user }) {
 
     return (
         <div className="home">
-            <PostForm
-                user={user}
-                posts={posts}
-                // setHomePosts={setHomePosts}
-                getHomePosts={getHomePosts}
-            />
-            {posts.length > 0 ? renderPosts() : "Follow users"}
+            <div className="post-form">
+                <PostForm
+                    user={user}
+                    posts={posts}
+                    // setHomePosts={setHomePosts}
+                    getHomePosts={getHomePosts}
+                />
+            </div>
+
+            <div className="post-card">
+                {posts.length > 0 ? renderPosts() : "Follow users"}
+            </div>
         </div>
     )
 }

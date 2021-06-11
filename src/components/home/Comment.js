@@ -31,15 +31,19 @@ function Comment({ comment, user, deleteComment, editComment, post }) {
 
     return (
         <div className="comment">
-            <div className="comment-username">
-                <strong><p>{username}</p></strong>
+            <div className="comment-picture">
+                <img src={avatar} alt="commenter"/>
             </div>
-                <div className="comment-content">   
-                    <p>{content}</p>
+                <div className="comment-username">
+                {/* turn p tag into a tag or navLink */}
+                    <strong><p>{username}</p></strong>
                 </div>
-                <div className="right extra">
-                    {decideEditMenu()}
-                </div>
+                    <div className="comment-content">   
+                        <p>{content}</p>
+                    </div>
+                        <div className="right extra">
+                            {decideEditMenu()}
+                        </div>
         </div>
     )
 }

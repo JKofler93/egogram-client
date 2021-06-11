@@ -31,6 +31,7 @@ function Login({ loginUser }) {
                 loginUser(userData.user)
                 localStorage.setItem("token", userData.jwt)
                 localStorage.setItem("userId", userData.user.id)
+                history.push('/home')
             }
         })
     }
@@ -41,23 +42,23 @@ function Login({ loginUser }) {
         <div className="container">
             <div className="box">
                 <div className="heading"><h1>Egogram</h1></div>
-                <form onSubmit={handleUserLogin}>
+                <form onSubmit={handleUserLogin} className="login-form">
                     <div className="field">
                         <input
+                            placeholder="username"
                             className="username"
                             type="text"
                             value={username}
-                            placeholder="Username"
                             onChange={e => setUsername(e.target.value)}
                         />
                         <label htmlFor="username">Username</label>
                     </div>
                     <div className="field">
                         <input
+                            placeholder="password"
                             className="password"
                             type="password"
                             value={password}
-                            placeholder="Password"
                             onChange={e => setPassword(e.target.value)}
                         />
                         <label htmlFor="password">Password</label>

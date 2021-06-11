@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import {BrowserRouter as Router, Redirect, Route, Switch, useHistory, useLocation } from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch, useHistory, useLocation } from "react-router-dom";
 import SignUp from './components/auth/SignUp';
 import Home from './components/home/Home'
 import Login from './components/auth/Login';
 import Navbar from './components/app/Navbar';
+import Profile from './components/profile/Profile'
 import './App.css';
 
 function App() {
@@ -38,14 +39,19 @@ function App() {
   const logoutHandler = () => {
     localStorage.clear("token")
     history.push('/login')
-    setUser(null)
+    setUser("")
   }
 
   
   return (
     <div className="App">
-    {/* {user && <Navbar logoutHandler={logoutHandler}/>} */}
+    {user && <Navbar logoutHandler={logoutHandler} user={user}/>}
       <Switch>
+        <Route exact path='/profile/:id'>
+          <Profile
+            user={user}
+          />
+        </Route>
         <Route exact path='/home'>
           <Home
             user={user}

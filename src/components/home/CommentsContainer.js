@@ -98,7 +98,7 @@ function CommentsContainer({ post, user }) {
     }
 
     return (
-        <>
+        <div className="comment-container">
             {renderComments()}
 
             <CommentForm
@@ -106,7 +106,7 @@ function CommentsContainer({ post, user }) {
                 setContent={setContent}
                 submitHandler={submitHandler}
             />
-        </>
+        </div>
     )
 }
 

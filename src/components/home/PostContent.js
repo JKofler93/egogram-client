@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from '../styles/Like.css';
 import Like from './Like'
+import { NavLink } from 'react-router-dom';
 
 function PostContent({ post, user, likes, postAddLike, postRemoveLike }) {
 
@@ -13,7 +14,8 @@ function PostContent({ post, user, likes, postAddLike, postRemoveLike }) {
     } = post
     
     return (
-            <div className="card">
+            <div className="card-card">
+                <NavLink to={`/profile/${post.user_id}`}>
                 <div className="card-header">
                     <img
                         src={avatar}
@@ -22,6 +24,7 @@ function PostContent({ post, user, likes, postAddLike, postRemoveLike }) {
                     />
                     <h4 className="card-user-name">{username}</h4>
                 </div>
+                </NavLink>
                     <div className="post-img">
                             <img
                                 src={image}
@@ -39,7 +42,7 @@ function PostContent({ post, user, likes, postAddLike, postRemoveLike }) {
                             />
                         </div>
                         <div className="post-content">
-                            <strong><p>{username}</p></strong>
+                            <NavLink exact to={`/profile/${post.user_id}`}><strong><p>{username}</p></strong></NavLink>
                             <p>{content}</p>
                         </div>
     

@@ -38,11 +38,11 @@ function SignUp({ loginUser }) {
         <div className="container">
             <div className="box">
                 <div className="heading"><h1>Egogram</h1></div>
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={handleSubmit} className="login-form">
                         <div className="field">
                             <input 
+                                placeholder="username"
                                 className="username"
-                                placeholder="Username"
                                 type="text"
                                 // value={email}
                                 onChange={e => setUsername(e.target.value)}
@@ -50,8 +50,8 @@ function SignUp({ loginUser }) {
                             <label htmlFor="username">Username</label>
                         </div>
                         <div className="field">
-                            <input 
-                                placeholder="Bio"
+                            <input
+                                placeholder="bio"
                                 type="text"
                                 // value={email}
                                 onChange={e => setBio(e.target.value)}
@@ -60,18 +60,16 @@ function SignUp({ loginUser }) {
                         </div>
                         <div className="field">
                             <input 
-                                placeholder="Email"
+                                placeholder="email"
                                 type="text"
-                                // value={email}
                                 onChange={e => setEmail(e.target.value)}
                             />
                             <label htmlFor="email">Email</label>
                         </div>
                         <div className="field">
                             <input 
-                                placeholder="Password"
+                                placeholder="password"
                                 type="password"
-                                // value={email}
                                 onChange={e => setPassword(e.target.value)}
                             />
                             <label htmlFor="password">Password</label>
@@ -82,7 +80,6 @@ function SignUp({ loginUser }) {
                                 type="file"
                                 accept="image/*"
                                 multiple={false}
-                                // value={profile_image}
                                 onChange={e => setProfileImage(e.target.files[0])}
                             />
                             <label htmlFor="image">Image</label>

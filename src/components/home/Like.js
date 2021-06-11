@@ -5,7 +5,7 @@ import styles from '../styles/Like.css'
 function Like({ user, post, likes, postAddLike, postRemoveLike }) {
 
     const decideButton = () => {
-            if(likes.find(like => like.user_id ===  user.id)){
+            if(likes.find(like => like.user_id === user.id)){
                 return (<button className="like-button" onClick={removeLike}>❤️</button>)
             } else {
                 return (<button className="like-button" onClick={addLike}>♡</button>)

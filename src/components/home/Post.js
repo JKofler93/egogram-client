@@ -65,10 +65,7 @@ function Post({ user, post, getHomePosts }) {
                     user={user}
                     post={post}
                 />
-
             </div>
-            
-
         </div>
     )
 }

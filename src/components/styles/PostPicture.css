@@ -1,0 +1,35 @@
+/* 1st most top DIV, located in PostPicture.js */
+.gallery {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+/* 2nd most top DIV, located in PostPicture.js */
+.gallery-item {
+  position: relative;
+  flex: 1 0 22rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* img className, located in PostPicture.js */
+.gallery-image {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+}
+
+.gallery-item-info li {
+  display: inline-block;
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+
+.gallery-item-likes {
+  margin-right: 2.2rem;
+}
+
+.gallery-item-comments {
+  margin-right: 2.2rem;
+}
