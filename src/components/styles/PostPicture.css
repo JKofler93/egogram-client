@@ -2,21 +2,24 @@
 .gallery {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
 }
 
 /* 2nd most top DIV, located in PostPicture.js */
 .gallery-item {
   position: relative;
-  flex: 1 0 22rem;
+  flex: 0 0 33.333333%;
   color: #fff;
   cursor: pointer;
+  margin-bottom: 5%;
 }
 
 /* img className, located in PostPicture.js */
 .gallery-image {
   width: 300px;
   height: 300px;
+  border: 1px solid black;
   object-fit: cover;
 }
 

@@ -6,7 +6,7 @@ function PostContainer({ posts, user }) {
     
     useEffect(() => {
         renderPosts()
-    })
+    }, [])
 
     const sortByDate = (array) => {
         return array.sort((a,b) => {

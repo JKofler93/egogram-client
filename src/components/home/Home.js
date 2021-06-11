@@ -59,11 +59,9 @@ function Home({ user }) {
                 <PostForm
                     user={user}
                     posts={posts}
-                    // setHomePosts={setHomePosts}
                     getHomePosts={getHomePosts}
                 />
             </div>
-
             <div className="post-card">
                 {posts.length > 0 ? renderPosts() : "Follow users"}
             </div>

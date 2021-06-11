@@ -37,11 +37,12 @@ a {
 }
   
 .heading {
+    font-family: cursive;
     margin: 22px auto 12px;
-    font-family: Georgia, serif;;
+    /* font-family: Georgia, serif;; */
     /* background-image: url(mark.jpg); */
     background-position: -98px 0;
-    height: 51px;
+    /* height: 51px; */
     width: 177px;
     overflow: hidden;
 }

@@ -45,7 +45,7 @@ function App() {
   
   return (
     <div className="App">
-    {user && <Navbar logoutHandler={logoutHandler} user={user}/>}
+    {user ? <Navbar logoutHandler={logoutHandler} user={user}/> : null}
       <Switch>
         <Route exact path='/profile/:id'>
           <Profile

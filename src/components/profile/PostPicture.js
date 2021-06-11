@@ -1,14 +1,22 @@
-import React, { useState } from 'react'
+import React, { useHover, useEffect, useState, useRef, useCallback } from 'react'
 import { CgArrowLongRightR } from 'react-icons/cg';
 import styles from '../styles/PostPicture.css'
 
 function PostPicture({ post }) {
-    const [onHover, setOnHover] = useState(false)
+    const [isHovered, setIsHovered] = useState(false);
     console.log(post)
-    const hoverImageStyles = {
+    
+    const { image, like_number, comment_number } = post;
+    
+    // const handleMouseEnter = () => setIsHovered(true);
+    // const handleMouseOut = () => setIsHovered(false);
+    
+    
+    let hoverImageStyles = {
         filter: "brightness(50%)"
     }
-    const hoverInfoStyles = {
+
+    let hoverInfoStyles = {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
@@ -19,45 +27,40 @@ function PostPicture({ post }) {
         height: '100%'
     }
 
-    const { image, like_number, comment_number } = post;
 
     return (
-        <div className="gallery-item">
+        <div className="gallery-item" >
+        { !isHovered 
 
-        {!onHover ? 
-        <>
+        ? 
             <div className="gallery-image-div">
                 <img 
-                    onMouseOver={() => setOnHover(true)}
+                    onMouseOver={() => setIsHovered(true)}
                     className="gallery-image" 
                     src={image} 
                     alt="post-img"
 
                 />
             </div>
-        </>
         :
-        <>
             <div className="gallery-image-div">
                 <img 
                     style={hoverImageStyles}
-                    onMouseOut={() => setOnHover(false)}
                     className="gallery-image" 
                     src={image} 
                     alt="post-img"
 
                 />
-            <div className="gallery-item-info" style={hoverInfoStyles}>
-                <ul>
-                    <li className="gallery-item-likes"><span className="visually-hidden"></span><i className="heart" aria-hidden="true">♥</i> {like_number}</li>
-                    <li className="gallery-item-comments"><span className="visually-hidden"></span><i className="comment" aria-hidden="true">💬</i> {comment_number}</li>
-                </ul>
+                <div className="gallery-item-info" style={hoverInfoStyles} onMouseLeave={() => setIsHovered(false)}>
+                    <ul>
+                        <li className="gallery-item-likes"><span className="visually-hidden"></span><i className="heart" aria-hidden="true">♥</i> {like_number}</li>
+                        <li className="gallery-item-comments"><span className="visually-hidden"></span><i className="comment" aria-hidden="true">💬</i> {comment_number}</li>
+                    </ul>
+                </div>
             </div>
-            </div>
-        </>
         }
-
         </div>
+
     )
 }
 
