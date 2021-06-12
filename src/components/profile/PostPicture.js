@@ -53,7 +53,7 @@ function PostPicture({ post }) {
                 />
                 <div className="gallery-item-info" style={hoverInfoStyles} onMouseLeave={() => setIsHovered(false)}>
                     <ul>
-                        <li className="gallery-item-likes"><span className="visually-hidden"></span><i className="heart" aria-hidden="true">♥</i> {like_number}</li>
+                        <li className="gallery-item-likes"><span className="visually-hidden"></span><i className="heart" aria-hidden="true">♥️</i> {like_number}</li>
                         <li className="gallery-item-comments"><span className="visually-hidden"></span><i className="comment" aria-hidden="true">💬</i> {comment_number}</li>
                     </ul>
                 </div>

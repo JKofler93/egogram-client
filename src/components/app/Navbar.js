@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { RiHome2Line, RiHome2Fill, RiLogoutBoxRLine } from 'react-icons/ri'
+import { BsPeopleCircle } from 'react-icons/bs'
 import { CgProfile } from 'react-icons/cg' 
 import styles from '../styles/NavbarStyles.css'
 
@@ -9,10 +10,32 @@ function Navbar({ logoutHandler, user }) {
     const [search, setSearch] = useState([])
     const [usersArray, setUsersArray] = useState([])
     const [suggestedUsers, setSuggestedUsers] = useState([])
+    const location = useLocation()
+    // console.log(location)
+
+    const determineNavBarHomeButton = () => {
+        if (location.pathname === '/home') {
+            return <RiHome2Fill className="home-button" style={{color: 'black'}}/>
+        } else {
+            return <RiHome2Line className="home-button" style={{color: 'black'}}/>
+        }
+    } 
+
+    const determineNavBarProfileButton = () => {
+        // console.log(location.pathname.substring(0, 8))
+        let subStringPathname = location.pathname.substring(0, 8)
+
+        if (location.pathname === subStringPathname) {
+            return <CgProfile className="profile-button" style={{color: 'black'}}/>
+        } else {
+            return <BsPeopleCircle  className="profile-button" style={{color: 'black'}}/>
+        }
+    }
 
     useEffect(() => {
         fetchUsers()
     }, [])
+
     // Gets user from db for search bar
     const fetchUsers = () => {
         const configObj = {
@@ -94,9 +117,9 @@ function Navbar({ logoutHandler, user }) {
                 </form>
             </div>
             <div className="navbar-icons">
-                <NavLink to="/home"><RiHome2Line style={{color: 'black'}}/></NavLink>
-                <NavLink to={`/profile/${user.id}`}><CgProfile style={{color: 'black'}}/></NavLink>
-                <NavLink to="/login" onClick={logoutHandler}><RiLogoutBoxRLine style={{color: 'black'}}/></NavLink>
+                <NavLink to="/home">{determineNavBarHomeButton()}</NavLink>
+                <NavLink to={`/profile/${user.id}`}>{determineNavBarProfileButton()}</NavLink>
+                <NavLink to="/login" onClick={logoutHandler}><RiLogoutBoxRLine className="logout-button" style={{color: 'black'}}/></NavLink>
             </div>
         </div>
     )
