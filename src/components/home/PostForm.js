@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styles from '../styles/PostForm.css'
 
 
 function PostForm({ user, getHomePosts }) {
@@ -30,25 +31,26 @@ function PostForm({ user, getHomePosts }) {
     }
 
     return (
-        <div>
+        <div className="post-form">
             <form onSubmit={handleSubmit}>
                 <input 
                     placeholder="Whats on your mind..."
                     type="text"
-                    // value={content}
                     onChange={e => setContent(e.target.value)}
                 />
 
                 <input 
+                    className="custom-file-input"
                     name="image"
                     type="file"
                     accept="image/*"
                     multiple={false}
-                    // value={post_image}
                     onChange={e => setPostImage(e.target.files[0])}
                 />
+                <div className="post-form-button-div">
+                    <button className="post-form-button" type="submit">Post!</button>
+                </div>
 
-                <button type="submit">submit</button>
             </form>
         </div>
     )

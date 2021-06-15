@@ -22,13 +22,17 @@ function Navbar({ logoutHandler, user }) {
     } 
 
     const determineNavBarProfileButton = () => {
-        // console.log(location.pathname.substring(0, 8))
+        
         let subStringPathname = location.pathname.substring(0, 8)
+        const pathNum = location.pathname.split("/")[2]
+        console.log(location.pathname)
 
-        if (location.pathname === subStringPathname) {
+        if ( location.pathname === "/home") {
             return <CgProfile className="profile-button" style={{color: 'black'}}/>
-        } else {
+        } else if (pathNum === user.id.toString()) {
             return <BsPeopleCircle  className="profile-button" style={{color: 'black'}}/>
+        } else {
+            return <CgProfile className="profile-button" style={{color: 'black'}}/>
         }
     }
 
@@ -117,9 +121,9 @@ function Navbar({ logoutHandler, user }) {
                 </form>
             </div>
             <div className="navbar-icons">
-                <NavLink to="/home">{determineNavBarHomeButton()}</NavLink>
-                <NavLink to={`/profile/${user.id}`}>{determineNavBarProfileButton()}</NavLink>
-                <NavLink to="/login" onClick={logoutHandler}><RiLogoutBoxRLine className="logout-button" style={{color: 'black'}}/></NavLink>
+                <a className="home-button" href="/home">{determineNavBarHomeButton()}</a>
+                <a className="profile-button" href={`/profile/${user.id}`}>{determineNavBarProfileButton()}</a>
+                <a className="logout-button" href="/login" onClick={logoutHandler}><RiLogoutBoxRLine style={{color: 'black'}}/></a>
             </div>
         </div>
     )

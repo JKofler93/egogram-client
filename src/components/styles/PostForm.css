@@ -1,0 +1,80 @@
+.post-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 40%;
+    margin: auto;
+    padding: 5%;
+
+    border-radius: 10px;
+
+    box-shadow: 0.5px 1px 3px grey;
+
+    background: rgba(255, 255, 255, 1);
+}
+
+.post-form input::placeholder {
+    text-align: center;
+}
+
+.post-form input {
+    text-align: center;
+    background-color: #fafafa;
+    padding: 3px 20px;
+    box-sizing: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.0975);
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+.post-form input[type='text'] {
+    margin-bottom: 1.25em;
+    position: relative;
+    height: 30px;
+    width: 75%;
+    align-items: center;
+}
+
+.post-form input[type='file'] {
+    background: none;
+    border: none;
+    color: transparent;
+}
+
+.custom-file-input::-webkit-file-upload-button {
+    visibility: hidden;
+
+}
+
+.custom-file-input::before {
+    content: "Add a photo";
+    display: inline-block;
+    align-content: content;
+    align-items: center;
+    color: black;
+    margin-left: 30%;
+    background: linear-gradient(top, #f9f9f9, #e3e3e3);
+    border: 1px solid #999;
+    border-radius: 3px;
+    padding: 5px 8px;
+    outline: none;
+    white-space: nowrap;
+    cursor: pointer;
+    text-shadow: 1px 1px #fff;
+    font-weight: 700;
+    font-size: 10pt;
+}
+
+.custom-file-input:hover::before {
+    border-color: black;
+}
+
+.custom-file-input:active::before {
+    background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
+
+.post-form-button-div {
+    display: center;
+    margin-top: 10px;
+}

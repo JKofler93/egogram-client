@@ -36,6 +36,34 @@ function Login({ loginUser }) {
         })
     }
 
+    const wannaLookAround = (e) => {
+
+        const formData = {
+            username: "nowayjoek",
+            password: "123"
+        }
+
+        fetch("http://localhost:3000/login", {
+            method: "POST",
+            headers: { 
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData), 
+        })
+        .then(res => res.json())
+        .then(userData => {
+            console.log(userData)
+
+            if(userData.user) {
+                loginUser(userData.user)
+                localStorage.setItem("token", userData.jwt)
+                localStorage.setItem("userId", userData.user.id)
+                history.push('/home')
+            }
+        })
+
+    }
+
 
 
     return (
@@ -74,7 +102,7 @@ function Login({ loginUser }) {
                         <div className="line"></div>
                     </div>
                     <div className="other">
-                        <p>Wanna look around?<NavLink exact to="/"> Click Me</NavLink></p>
+                        <p>Wanna look around?<NavLink exact onClick={wannaLookAround} to="/home"> Click Me</NavLink></p>
                         {/* <a className="forgot-password" href="#">Forgot password?</a> */}
                     </div>
                 </form>

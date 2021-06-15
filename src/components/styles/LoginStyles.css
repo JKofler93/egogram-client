@@ -39,10 +39,7 @@ a {
 .heading {
     font-family: cursive;
     margin: 22px auto 12px;
-    /* font-family: Georgia, serif;; */
-    /* background-image: url(mark.jpg); */
     background-position: -98px 0;
-    /* height: 51px; */
     width: 177px;
     overflow: hidden;
 }
@@ -54,12 +51,12 @@ a {
     width: 100%;
     text-overflow: ellipsis;
 }
-  
-input {
+
+.login-form input {
     padding: 9px 0px 7px 9px;
     font-size: 12px;
     width: 16rem;
-    height: 1.2rem;
+    height: 1.4rem;
     outline: none;
     background: #fafafa;
     border-radius: 3px;
@@ -114,6 +111,7 @@ input:not(:placeholder-shown) {
     font-size: 14px;
     cursor: pointer;
     border-radius: 5px;
+    /* margin-top: 25px; */
 }
   
 .separator {
@@ -161,4 +159,44 @@ input:not(:placeholder-shown) {
 .signup {
     color: #3897f0;
     font-weight: 600;
+}
+
+.login-form input[type='file'] {
+    background: none;
+
+    border: none;
+    color: transparent;
+}
+
+.custom-file-input-login::-webkit-file-upload-button {
+    visibility: hidden;
+
+}
+
+.custom-file-input-login::before {
+    content: "Add a profile picture";
+    display: inline-block;
+    align-content: content;
+    align-items: center;
+    color: black;
+    margin-top: -50px;
+    margin-left: 15%;
+    background: linear-gradient(top, #f9f9f9, #e3e3e3);
+    border: 1px solid #999;
+    border-radius: 3px;
+    padding: 5px 8px;
+    outline: none;
+    white-space: nowrap;
+    cursor: pointer;
+    text-shadow: 1px 1px #fff;
+    font-weight: 700;
+    font-size: 10pt;
+}
+
+.custom-file-input-login:hover::before {
+    border-color: black;
+}
+
+.custom-file-input-login:active::before {
+    background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
 }

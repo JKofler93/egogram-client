@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import styles from '../styles/Comment.css'
 
 function Comment({ comment, user, deleteComment, editComment, post }) {
     const [editor, setEditor] = useState(false)
@@ -9,9 +10,9 @@ function Comment({ comment, user, deleteComment, editComment, post }) {
 
     const showEditButtons = () => {
         return (
-            <div className="buttons comment-buttons">
-                <span className="close" onClick={() => setEditor(false)}>X</span>
-                {comment.user_id === user.id ? <button className="comment-edit edit" onClick={() => editComment(comment)}>Edit</button> : null}
+            <div className="buttons-comment-buttons">
+                <span className="close" onClick={() => setEditor(false)}><strong>x</strong></span>
+                {comment.user_id === user.id ? <button className="comment-edit-button" onClick={() => editComment(comment)}>Edit</button> : null}
                 <button className="comment-delete delete" onClick={() => deleteComment(comment)}>Delete</button>
             </div>
         )
@@ -31,19 +32,14 @@ function Comment({ comment, user, deleteComment, editComment, post }) {
 
     return (
         <div className="comment">
-            <div className="comment-picture">
-                <img src={avatar} alt="commenter"/>
+            <div className="comment-words">
+                <a href={`/profile/${comment.user_id}`}><img className="comment-img" src={avatar} alt="commenter"/></a>
+                <a href={`/profile/${comment.user_id}`}><strong><p className="comment-content">{username}</p></strong></a>
+                <p className="comment-content-words">{content}</p>
             </div>
-                <div className="comment-username">
-                {/* turn p tag into a tag or navLink */}
-                    <strong><p>{username}</p></strong>
+                <div className="right-extra">
+                    {decideEditMenu()}
                 </div>
-                    <div className="comment-content">   
-                        <p>{content}</p>
-                    </div>
-                        <div className="right extra">
-                            {decideEditMenu()}
-                        </div>
         </div>
     )
 }

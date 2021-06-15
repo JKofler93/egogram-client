@@ -34,8 +34,31 @@
 }
 
 .card-content {
-    padding: 15px;
+    padding: 0.9375em;
     color: #000;
     text-decoration: none;
     font-weight: bold;
+}
+
+.post-img-url {
+    height: 25.50em;
+    /* width: 25.00em; */
+}
+
+.post-content {
+    display: flex;
+    margin-left: 10px;
+    margin-top: -0.9375em;
+}
+
+.post-words {
+    margin-left: 0.9375em;
+    margin-right: 0.9375em;
+}
+
+.post-time {
+    font-size: 12px;
+    display: flex;
+    margin-left: 10px;
+    margin-top: -1.9375em;
 }

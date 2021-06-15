@@ -1,0 +1,34 @@
+.comment-form {
+    margin-top: 1.25em;
+    margin-bottom: 1.25em;
+    position: relative;
+    height: 3.5vh;
+    width: 100%;
+    align-items: center;
+}
+
+.comment-form input {
+    text-align: center;
+    background-color: #fafafa;
+    padding: 3px 20px;
+    padding-left: 25px;
+    height: 30px;
+    width: 50%;
+    box-sizing: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.0975);
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+.comment-form button {
+    margin-left: 0.3125em;
+}
+
+.comment-form input:focus {
+    outline: none;
+    text-align: center;
+}
+
+.comment-form input::placeholder {
+    text-align: center;
+}

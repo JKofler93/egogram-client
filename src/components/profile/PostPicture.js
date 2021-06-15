@@ -4,13 +4,9 @@ import styles from '../styles/PostPicture.css'
 
 function PostPicture({ post }) {
     const [isHovered, setIsHovered] = useState(false);
-    console.log(post)
+    // console.log(post)
     
     const { image, like_number, comment_number } = post;
-    
-    // const handleMouseEnter = () => setIsHovered(true);
-    // const handleMouseOut = () => setIsHovered(false);
-    
     
     let hoverImageStyles = {
         filter: "brightness(50%)"
@@ -53,8 +49,8 @@ function PostPicture({ post }) {
                 />
                 <div className="gallery-item-info" style={hoverInfoStyles} onMouseLeave={() => setIsHovered(false)}>
                     <ul>
-                        <li className="gallery-item-likes"><span className="visually-hidden"></span><i className="heart" aria-hidden="true">♥️</i> {like_number}</li>
-                        <li className="gallery-item-comments"><span className="visually-hidden"></span><i className="comment" aria-hidden="true">💬</i> {comment_number}</li>
+                        <li className="gallery-item-likes"><span className="visually-hidden"></span><i className="heart-icon" aria-hidden="true">♥️</i> {like_number}</li>
+                        <li className="gallery-item-comments"><span className="visually-hidden"></span><i className="comment-icon" aria-hidden="true">💬</i> {comment_number}</li>
                     </ul>
                 </div>
             </div>

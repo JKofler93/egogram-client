@@ -100,12 +100,11 @@ function CommentsContainer({ post, user }) {
     return (
         <div className="comment-container">
             {renderComments()}
-
-            <CommentForm
-                content={content}
-                setContent={setContent}
-                submitHandler={submitHandler}
-            />
+                <CommentForm
+                    content={content}
+                    setContent={setContent}
+                    submitHandler={submitHandler}
+                />
         </div>
     )
 }

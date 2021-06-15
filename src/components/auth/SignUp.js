@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from '../styles/LoginStyles.css';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 
 
 function SignUp({ loginUser }) {
@@ -9,6 +9,8 @@ function SignUp({ loginUser }) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [profile_image, setProfileImage] = useState(null);
+
+    const history = useHistory()
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -32,6 +34,34 @@ function SignUp({ loginUser }) {
             }
         })
         .catch(error => console.log(error))
+    }
+
+    const wannaLookAround = (e) => {
+
+        const formData = {
+            username: "nowayjoek",
+            password: "123"
+        }
+
+        fetch("http://localhost:3000/login", {
+            method: "POST",
+            headers: { 
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData), 
+        })
+        .then(res => res.json())
+        .then(userData => {
+            console.log(userData)
+
+            if(userData.user) {
+                loginUser(userData.user)
+                localStorage.setItem("token", userData.jwt)
+                localStorage.setItem("userId", userData.user.id)
+                history.push('/home')
+            }
+        })
+
     }
     
     return (
@@ -76,13 +106,13 @@ function SignUp({ loginUser }) {
                         </div>
                         <div className="field">
                             <input 
+                                className="custom-file-input-login"
                                 name="image"
                                 type="file"
                                 accept="image/*"
                                 multiple={false}
                                 onChange={e => setProfileImage(e.target.files[0])}
                             />
-                            <label htmlFor="image">Image</label>
                         </div>
                         <button 
                             className="login-button"
@@ -94,7 +124,7 @@ function SignUp({ loginUser }) {
                             <div className="line"></div>
                         </div>
                         <div className="other">
-                            <p>Wanna look around?<NavLink exact to="/login"> Click Me</NavLink></p>
+                            <p>Wanna look around?<NavLink exact onClick={wannaLookAround} to="/home"> Click Me</NavLink></p>
                             {/* <a className="forgot-password" href="#">Forgot password?</a> */}
                         </div>
                     </form>

@@ -1,4 +1,6 @@
 .like-button {
+    display: flex;
+    margin-left: 0.625em;
     background: none;
     font-size: x-large;
     border: none;
@@ -7,4 +9,10 @@
 .like-button:hover {
     cursor: pointer;
     color: none;
+}
+
+.like-number {
+    display: flex;
+    margin-left: 0.625em;
+    margin-top: -0.9375em;
 }

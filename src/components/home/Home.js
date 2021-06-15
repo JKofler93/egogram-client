@@ -32,7 +32,7 @@ function Home({ user }) {
 
         
         const sortByDate = (array) => {
-            console.log(array)
+            // console.log(array)
             return array.sort((a,b) => {
                 if (a.created_at > b.created_at) return -1;
                 if (a.created_at < b.created_at) return 1;
@@ -55,13 +55,11 @@ function Home({ user }) {
 
     return (
         <div className="home">
-            <div className="post-form">
                 <PostForm
                     user={user}
                     posts={posts}
                     getHomePosts={getHomePosts}
                 />
-            </div>
             <div className="post-card">
                 {posts.length > 0 ? renderPosts() : "Follow users"}
             </div>
