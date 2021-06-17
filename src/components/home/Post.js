@@ -51,19 +51,15 @@ function Post({ user, post, getHomePosts, deletePost, renderPosts }) {
         deletePost(post)
     }
 
-    const showEditButtons = () => {
-        return (
-            <div className="post-buttons">
-                <span className="close" onClick={() => setEditor(false)}><strong>x</strong></span>
-                <button className="post-delete-button" onClick={handleClick}>Delete</button>
-            </div>
-        )
-    }
-
     const showEditMenu = () => {
-        return (editor ?
-            showEditButtons() : 
-            <span onClick={() => setEditor(true)}><strong>x</strong></span>
+        return (!editor &&
+            <div className="dropdown-span">
+                <span onClick={() => setEditor(!true)}><strong>...</strong></span>
+                    <div className="dropdown-content">
+                        <p className="option-two-p" onClick={handleClick}><strong>Delete</strong></p>
+                    </div>
+            </div>
+
         )
     }
 
@@ -74,9 +70,7 @@ function Post({ user, post, getHomePosts, deletePost, renderPosts }) {
 
     return (
         <div className="card">
-            <div className="menu">
             {decideEditMenu()}
-            </div>
             <PostContent
                 key={post.id}
                 post={post}
@@ -84,6 +78,7 @@ function Post({ user, post, getHomePosts, deletePost, renderPosts }) {
                 likes={likes}
                 postRemoveLike={postRemoveLike}
                 postAddLike={postAddLike}
+                decideEditMenu={decideEditMenu}
             />
             <div className="post-comments">
                 <CommentsContainer

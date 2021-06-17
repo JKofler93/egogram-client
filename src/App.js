@@ -24,7 +24,7 @@ function App() {
         .then(userData => {
           // console.log(userData.user)
           setUser(userData.user);
-          // console.log(user)
+          console.log(user)
         })
       }
     }, [])

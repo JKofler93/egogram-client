@@ -67,9 +67,9 @@ function Home({ user }) {
             fetch(`http://localhost:3000/posts/${postObj.id}`, configObj)
                 .then(res => res.json())
                 .then(postsObj => {
-                    // getHomePosts()
+                    getHomePosts()
                     // renderPosts()
-                    console.log(`postsObj`, postsObj)
+                    // console.log(`postsObj`, postsObj)
                     setPosts(postsObj)
                 })
         }
@@ -82,6 +82,7 @@ function Home({ user }) {
                     user={user}
                     posts={posts}
                     getHomePosts={getHomePosts}
+                    setPosts={setPosts}
                 />
             <div className="post-card">
                 {posts.length > 0 ? renderPosts() : "Follow users"}

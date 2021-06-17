@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from '../styles/PostForm.css'
 
-function PostForm({ user, getHomePosts }) {
+function PostForm({ user, getHomePosts, setPosts }) {
     const [content, setContent] = useState("");
     const [post_image, setPostImage] = useState(null);
 
@@ -18,7 +18,10 @@ function PostForm({ user, getHomePosts }) {
         })
         .then(res => res.json())
         .then(post => {
+            setPosts(post)
             getHomePosts()
+        })
+        .then(() => {
             setContent("")
             setPostImage(null)
         })
