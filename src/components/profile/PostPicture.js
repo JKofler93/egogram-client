@@ -1,5 +1,4 @@
-import React, { useHover, useEffect, useState, useRef, useCallback } from 'react'
-import { CgArrowLongRightR } from 'react-icons/cg';
+import React, { useState } from 'react'
 import styles from '../styles/PostPicture.css'
 
 function PostPicture({ post }) {

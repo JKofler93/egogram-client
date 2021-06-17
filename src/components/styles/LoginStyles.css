@@ -113,7 +113,7 @@ input:not(:placeholder-shown) {
     border-radius: 5px;
     /* margin-top: 25px; */
 }
-  
+
 .separator {
     display: flex;
     justify-content: space-between;
@@ -134,31 +134,10 @@ input:not(:placeholder-shown) {
     flex-direction: column;
     align-items: center;
 }
-  
-.fb-login-btn {
-    margin: 1rem;
-    border: 0;
-    cursor: pointer;
-    font-size: 14px;
-    color: #385185;
-    font-weight: 600;
-    background: transparent;
-}
-  
-.fb-icon {
-    color: #385185;
-    font-size: 1rem;
-    padding-right: 1px;
-}
 
 .forgot-password {
     font-size: 11px;
     color: #003569;
-}
-  
-.signup {
-    color: #3897f0;
-    font-weight: 600;
 }
 
 .login-form input[type='file'] {
@@ -170,7 +149,6 @@ input:not(:placeholder-shown) {
 
 .custom-file-input-login::-webkit-file-upload-button {
     visibility: hidden;
-
 }
 
 .custom-file-input-login::before {
@@ -180,8 +158,7 @@ input:not(:placeholder-shown) {
     align-items: center;
     color: black;
     margin-top: -50px;
-    margin-left: 15%;
-    background: linear-gradient(top, #f9f9f9, #e3e3e3);
+    margin-left: 20%;
     border: 1px solid #999;
     border-radius: 3px;
     padding: 5px 8px;

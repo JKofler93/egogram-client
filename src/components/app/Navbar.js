@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { RiHome2Line, RiHome2Fill, RiLogoutBoxRLine } from 'react-icons/ri'
 import { BsPeopleCircle } from 'react-icons/bs'
 import { CgProfile } from 'react-icons/cg' 
@@ -23,9 +23,8 @@ function Navbar({ logoutHandler, user }) {
 
     const determineNavBarProfileButton = () => {
         
-        let subStringPathname = location.pathname.substring(0, 8)
         const pathNum = location.pathname.split("/")[2]
-        console.log(location.pathname)
+        // console.log(location.pathname)
 
         if ( location.pathname === "/home") {
             return <CgProfile className="profile-button" style={{color: 'black'}}/>

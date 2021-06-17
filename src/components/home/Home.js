@@ -4,7 +4,7 @@ import Post from './Post';
 import styles from '../styles/HomeStyles.css'
 
 function Home({ user }) {
-    const [posts, setPosts] = useState([])
+    const [posts, setPosts] = useState([]);
 
 
     useEffect(() => {
@@ -49,9 +49,32 @@ function Home({ user }) {
                     post={post}
                     getHomePosts={getHomePosts}
                     renderPosts={renderPosts}
+                    deletePost={deletePost}
                 />
             )
         }
+
+        const deletePost = (postObj) => {
+            const configObj = {
+                method: 'DELETE',
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem("token")}`,
+                    'Content-Type': 'application/json',
+                    'Accepts': 'application/json'
+                },
+                body: JSON.stringify(postObj)
+            }
+            fetch(`http://localhost:3000/posts/${postObj.id}`, configObj)
+                .then(res => res.json())
+                .then(postsObj => {
+                    // getHomePosts()
+                    // renderPosts()
+                    console.log(`postsObj`, postsObj)
+                    setPosts(postsObj)
+                })
+        }
+
+
 
     return (
         <div className="home">

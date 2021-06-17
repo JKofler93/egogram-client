@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import {BrowserRouter as Router, Route, Switch, useHistory, useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, useHistory } from "react-router-dom";
 import SignUp from './components/auth/SignUp';
 import Home from './components/home/Home'
 import Login from './components/auth/Login';

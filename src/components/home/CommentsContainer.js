@@ -1,4 +1,3 @@
-import { ClickAwayListener } from '@material-ui/core';
 import React, { useState, useEffect } from 'react';
 import Comment from '../home/Comment'
 import CommentForm from './CommentForm'
@@ -8,9 +7,12 @@ function CommentsContainer({ post, user }) {
     const [content, setContent] = useState("");
     const [commentEditObj, setCommentEditObj] = useState("")
 
-    // console.log("post", post)
+    useEffect(() => {
+        renderComments()
+    })
+
     const renderComments = () => {
-        // console.log("haha", comments)
+        
         return comments.map(comment => 
             <Comment
                 key={comment.id}
@@ -19,7 +21,8 @@ function CommentsContainer({ post, user }) {
                 deleteComment={deleteComment}
                 editComment={editComment}
                 post={post}
-            />)
+            />
+        )
     }
 
     const editComment = (commentObj) => {
@@ -39,7 +42,7 @@ function CommentsContainer({ post, user }) {
         fetch(`http://localhost:3000/comments/${commentObj.id}`, configObj)
             .then(res => res.json())
             .then(post => {
-                console.log("im running too!!")
+                // console.log("im running too!!")
                 setComments(post.post.comments)
                 // setContent("")
             })

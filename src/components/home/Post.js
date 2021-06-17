@@ -3,8 +3,10 @@ import CommentsContainer from './CommentsContainer';
 import PostContent from './PostContent';
 import styles from '../styles/PostStyles.css'
 
-function Post({ user, post, getHomePosts }) {
+function Post({ user, post, getHomePosts, deletePost, renderPosts }) {
     const [likes, setLikes] = useState(post.likes || [])
+    const [editor, setEditor] = useState(false)
+    console.log(post)
 
     const postAddLike = (newLikeObj) => {
 
@@ -45,10 +47,35 @@ function Post({ user, post, getHomePosts }) {
         // Returns the post Obj with all associated likes and comments (not with the delete post_like)
     }
 
+    const handleClick = () => {
+        deletePost(post)
+    }
+
+    const showEditButtons = () => {
+        return (
+            <div className="post-buttons">
+                <span className="close" onClick={() => setEditor(false)}><strong>x</strong></span>
+                <button className="post-delete-button" onClick={handleClick}>Delete</button>
+            </div>
+        )
+    }
+
+    const showEditMenu = () => {
+        return (editor ?
+            showEditButtons() : 
+            <span onClick={() => setEditor(true)}><strong>x</strong></span>
+        )
+    }
+
+    const decideEditMenu = () => {
+        return post.user_id === user.id ? showEditMenu() : null
+    }
+
+
     return (
         <div className="card">
             <div className="menu">
-            {/* {decideEditMenu()} */}
+            {decideEditMenu()}
             </div>
             <PostContent
                 key={post.id}
@@ -57,8 +84,6 @@ function Post({ user, post, getHomePosts }) {
                 likes={likes}
                 postRemoveLike={postRemoveLike}
                 postAddLike={postAddLike}
-                // submitHandler={submitHandler}
-                // editPostContent={editPostContent}
             />
             <div className="post-comments">
                 <CommentsContainer
