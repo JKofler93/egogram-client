@@ -36,6 +36,19 @@
     margin-right: 20px;
     font-size: small;
     margin-left: 10px;
+    cursor: default;
+}
+
+.close {
+    margin-right: 5px;
+    margin-top: 5px;
+    cursor: default;
+    font-weight: 700;
+}
+
+.close-buttons {
+    cursor: context-menu;
+    font-weight: 700;
 }
 
 
@@ -43,10 +56,37 @@
     display: flex;
 }
 
-.close {
-    margin-right: 0.3125em;
+.comment-edit-button {
+    margin-right: 5px;
+    padding: 5px;
+    border: 1px solid transparent;
+    background-color: #3897f0;
+    color: #fff;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
-.comment-edit-button {
-    margin-right: 0.3125em;
+.comment-edit-button:hover {
+    transform: scale(1.02); 
+    box-shadow: 0px 5px 10px 2px #3897f0;
 }
+
+.comment-delete-button {
+    margin-right: 5px;
+    padding: 5px;
+    border: 1px solid transparent;
+    background-color: #ff0011;
+    color: #fff;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.comment-delete-button:hover {
+    transform: scale(1.02); 
+    box-shadow: 0px 5px 10px 2px #ed5249;
+}
+

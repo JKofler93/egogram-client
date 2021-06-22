@@ -17,22 +17,22 @@ function PostContent({ post, user, likes, postAddLike, postRemoveLike }) {
     return (
             <div className="card-card">
                 <NavLink to={`/profile/${post.user_id}`}>
-                <div className="card-header">
-                    <img
-                        src={avatar}
-                        alt="users-img-url"
-                        className="card-user-img"
-                    />
-                    <h4 className="card-user-name">{username}</h4>
-                </div>
+                    <div className="card-header">
+                        <img
+                            src={avatar}
+                            alt="users-img-url"
+                            className="card-user-img"
+                        />
+                        <h4 className="card-user-name">{username}</h4>
+                    </div>
                 </NavLink>
                     <div className="post-img">
-                            <img
-                                src={image}
-                                alt="post-img-url"
-                                className="post-img-url"
-                            />
-                        </div>
+                        <img
+                            src={image}
+                            alt="post-img-url"
+                            className="post-img-url"
+                        />
+                    </div>
                         <div className="like-button-div">
                             <Like 
                                 user={user}

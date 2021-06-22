@@ -11,9 +11,9 @@ function Comment({ comment, user, deleteComment, editComment, post }) {
     const showEditButtons = () => {
         return (
             <div className="buttons-comment-buttons">
-                <span className="close" onClick={() => setEditor(false)}><strong>x</strong></span>
+                <span className="close" onClick={() => setEditor(!editor)}>x</span>
                 {comment.user_id === user.id ? <button className="comment-edit-button" onClick={() => editComment(comment)}>Edit</button> : null}
-                <button className="comment-delete delete" onClick={() => deleteComment(comment)}>Delete</button>
+                <button className="comment-delete-button" onClick={() => deleteComment(comment)}>Delete</button>
             </div>
         )
     }
@@ -21,7 +21,7 @@ function Comment({ comment, user, deleteComment, editComment, post }) {
     const showEditMenu = () => {
         return (editor ? 
             showEditButtons() : 
-            <h4 onClick={() => setEditor(true)}>x</h4>
+            <span className="close-buttons" onClick={() => setEditor(!editor)}>x</span>
         )
     }
 

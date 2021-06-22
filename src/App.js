@@ -12,6 +12,7 @@ function App() {
   const history = useHistory();
 
 
+
     // Authenticate user and keep them "logged in"
     useEffect(() => {
       const token = localStorage.getItem("token");
@@ -50,6 +51,7 @@ function App() {
         <Route exact path='/profile/:id'>
           <Profile
             user={user}
+            setUser={setUser}
           />
         </Route>
         <Route exact path='/home'>

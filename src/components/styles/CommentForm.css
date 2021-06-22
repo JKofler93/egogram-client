@@ -2,33 +2,54 @@
     margin-top: 1.25em;
     margin-bottom: 1.25em;
     position: relative;
-    height: 3.5vh;
+    height: 5.5vh;
     width: 100%;
     align-items: center;
 }
 
-.comment-form input {
-    text-align: center;
+.comment-form input[type="text"] {
+    text-align: left;
     background-color: #fafafa;
-    padding: 3px 20px;
-    padding-left: 25px;
-    height: 30px;
-    width: 50%;
     box-sizing: border-box;
     border: 1px solid rgba(0, 0, 0, 0.0975);
-    border-radius: 3px;
+    /* border-radius: 5px; */
+    border-radius: 15px;
     font-size: 14px;
-}
 
-.comment-form button {
-    margin-left: 0.3125em;
+    width: 90%;
+    height: 40px;
+    padding-right: 50px;
 }
 
 .comment-form input:focus {
     outline: none;
-    text-align: center;
+    /* text-align: left; */
 }
 
-.comment-form input::placeholder {
-    text-align: center;
+.comment-form input[type="submit"] {
+    margin-left: -50px;
+    background: none;
+    border: none;
+}
+
+
+.comment-submit-button {
+    background: none;
+    color: black;
+    font-weight: 900;
+    font-size: 14px;
+    cursor: pointer;
+    /* border-radius: 5px; */
+}
+
+.comment-submit-button:hover {
+    background: none;
+    border: none;
+    text-decoration: none; 
+    transform: scale(1.2); 
+    box-shadow: 0px 10px 15px 2px #fafafa;
+}
+
+.comment-edit-open {
+    cursor: context-menu;
 }

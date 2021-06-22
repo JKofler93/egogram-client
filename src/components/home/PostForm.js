@@ -44,9 +44,8 @@ function PostForm({ user, getHomePosts, setPosts }) {
                     multiple={false}
                     onChange={e => setPostImage(e.target.files[0])}
                 />
-                <div className="post-form-button-div">
-                    <button className="post-form-button" type="submit">Post!</button>
-                </div>
+
+                <button className="post-form-button" type="submit">Share</button>
 
             </form>
         </div>

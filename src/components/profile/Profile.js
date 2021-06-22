@@ -1,13 +1,17 @@
 import React, { useEffect, useState} from 'react'
 import InfoContainer from './InfoContainer'
 import PostContainer from './PostContainer'
+import UserForm from './UserForm'
 import styles from '../styles/PostPicture.css'
 
-function Profile({ user }) {
+function Profile({ user, setUser }) {
     const [posts, setPosts] = useState([]);
     const [profileFollowers, setProfileFollowers ] = useState([]);
     const [profileFollowings, setProfileFollowings ] = useState([]);
     const [profileUser, setProfileUser ] = useState("");
+
+    // References UserForm for Edit Profile button to show UserForm
+    const [isOpen, setIsOpen] = useState(false)
 
     useEffect(() => {
         profileUserFetch()
@@ -49,7 +53,24 @@ function Profile({ user }) {
                 profileFollowings={profileFollowings}
                 setProfileFollowings={setProfileFollowings}
                 profileUserFetch={profileUserFetch}
+                isOpen={isOpen}
+                setIsOpen={setIsOpen}
             />
+            {isOpen ? (
+                <div className="user-form-div">
+                    <UserForm
+                        user={user}
+                        setUser={setUser}
+                        profileUserFetch={profileUserFetch}
+                        isOpen={isOpen}
+                        setIsOpen={setIsOpen}
+                    />
+                </div>
+            )
+            :
+                null
+
+            }
             {posts ? 
                 <PostContainer
                     posts={posts}

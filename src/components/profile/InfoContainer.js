@@ -2,7 +2,7 @@ import React from 'react'
 import styles from '../styles/InfoContainer.css'
 import { useEffect } from 'react'
 
-function InfoContainer({ user, posts, profileUser, profileFollowers, profileFollowings, setProfileFollowings, profileUserFetch }) {
+function InfoContainer({ user, posts, profileUser, profileFollowers, profileFollowings, setProfileFollowings, profileUserFetch, isOpen, setIsOpen }) {
     const { 
         username,
         bio,
@@ -18,7 +18,7 @@ function InfoContainer({ user, posts, profileUser, profileFollowers, profileFoll
         const foundFollowedUser = profileFollowers.find(follow => follow.username === user.username)
 
         if(profileUser.id === user.id) {
-            return <button className="btn profile-edit-btn">Edit Profile</button>
+            return <button className="btn profile-edit-btn" onClick={e => setIsOpen(!isOpen)}>Edit Profile</button>
         } else if (foundFollowedUser) {
             return <button onClick={determineFollowOrUnFollow} className="btn profile-edit-btn">Unfollow</button>
         } else {

@@ -12,6 +12,7 @@ function CommentForm({ content, setContent, submitHandler }) {
     return (
         <div className="comment-form">
             <form onSubmit={submit}>
+
                 <input 
                     type="text"
                     placeholder="Add a comment..."
@@ -19,9 +20,13 @@ function CommentForm({ content, setContent, submitHandler }) {
                     onChange={e => setContent(e.target.value)}
                     className="comment-input"
                 />
-                <button
+                
+                <input
                     type="submit"
-                >Submit</button>
+                    value="Post"
+                    className="comment-submit-button"
+                />
+
             </form>
         </div>
     )
