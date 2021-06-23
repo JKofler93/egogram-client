@@ -8,6 +8,7 @@ function UserForm({ user, setUser, profileUserFetch, setIsOpen, isOpen }) {
     const [password, setPassword] = useState("");
     const [profile_image, setProfileImage] = useState(null);
     console.log(user.id)
+    console.log(user)
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -103,9 +104,6 @@ function UserForm({ user, setUser, profileUserFetch, setIsOpen, isOpen }) {
 
                 <button className="form-submit-button" type="submit" onClick={e => setIsOpen(!isOpen)}>Update Info</button>
             </form>
-            <div className="forget-me-button-div">
-                <button className="forget-me-button">Forget Me?</button>
-            </div>
         </div>
     )
 }

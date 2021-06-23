@@ -3,7 +3,6 @@
     justify-content: space-between;
     padding-left: 1.25em;
     font-size: .8725rem;
-    /* height: fit-content; */
     margin: 0em 0.3125em 0.625em 0.3125em;
     box-shadow: 0.5px 1px 3px grey;
 }
@@ -90,3 +89,6 @@
     box-shadow: 0px 5px 10px 2px #ed5249;
 }
 
+.post-comments {
+    margin-top: 20px;
+}

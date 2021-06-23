@@ -6,7 +6,7 @@ import styles from '../styles/PostStyles.css'
 function Post({ user, post, getHomePosts, deletePost, renderPosts }) {
     const [likes, setLikes] = useState(post.likes || [])
     const [editor, setEditor] = useState(false)
-    console.log(post)
+    // console.log(post)
 
     const postAddLike = (newLikeObj) => {
 
@@ -24,6 +24,7 @@ function Post({ user, post, getHomePosts, deletePost, renderPosts }) {
             .then(post => {
                 getHomePosts()
                 setLikes(post.post.likes)
+                console.log("i'm being ran too!")
             })
     }
     
@@ -47,16 +48,12 @@ function Post({ user, post, getHomePosts, deletePost, renderPosts }) {
         // Returns the post Obj with all associated likes and comments (not with the delete post_like)
     }
 
-    const handleClick = () => {
-        deletePost(post)
-    }
-
     const showEditMenu = () => {
         return (!editor &&
             <div className="dropdown-span">
                 <span onClick={() => setEditor(!true)}><strong>...</strong></span>
                     <div className="dropdown-content">
-                        <p className="option-two-p" onClick={handleClick}><strong>Delete</strong></p>
+                        <p className="option-two-p" onClick={ () => deletePost(post)}><strong>Delete</strong></p>
                     </div>
             </div>
 

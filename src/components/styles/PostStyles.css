@@ -58,18 +58,18 @@
     font-size: 12px;
     display: flex;
     margin-left: 10px;
-    margin-top: -1.9375em;
 }
 
 /* Styles from drop down menu */
 
-
-/* span in Post.js line 68 */
 .dropdown-span {
     float: right;
     margin-top: 22px;
     margin-right: 15px;
     position: relative;
+}
+
+.post-edit-span {
     cursor: pointer;
 }
 
@@ -104,28 +104,3 @@
 .dropdown-span:hover .dropdown-content {
     display: block;
 }
-
-/* .dropdown:hover .dropdown-content {
-    display: block;
-} */
-
-/* .option-one-p {
-    font-size: 10px;
-    cursor: pointer;
-}
-
-.option-one-p:hover {
-    box-shadow: 100% lightgray;
-    text-size-adjust: 12px;
-}
-
-.option-two-p {
-    font-size: 10px;
-    color: red;
-    cursor: pointer;
-}
-
-.option-two-p:hover {
-    box-shadow: 100% lightgray;
-    text-size-adjust: 12px;
-}  */

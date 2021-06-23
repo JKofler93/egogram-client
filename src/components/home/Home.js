@@ -27,6 +27,7 @@ function Home({ user }) {
             .then(res => res.json())
             .then(posts => {
                 setPosts(posts.posts)
+                console.log("getHomePosts","+", "Im being ran!!")
             })
         }
 
@@ -85,7 +86,7 @@ function Home({ user }) {
                     setPosts={setPosts}
                 />
             <div className="post-card">
-                {posts.length > 0 ? renderPosts() : "Follow users"}
+                {posts.length > 0 ? renderPosts() : <h1>Search for friends or make some posts!</h1>}
             </div>
         </div>
     )
