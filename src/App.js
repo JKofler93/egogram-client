@@ -9,6 +9,7 @@ import './App.css';
 
 function App() {
   const [user, setUser] = useState("");
+  const [clicked, setClicked] = useState(false)
   const history = useHistory();
 
 
@@ -46,7 +47,7 @@ function App() {
   
   return (
     <div className="App">
-    {user ? <Navbar logoutHandler={logoutHandler} user={user}/> : null}
+    {user ? <Navbar logoutHandler={logoutHandler} user={user} clicked={clicked} setClicked={setClicked}/> : null}
       <Switch>
         <Route exact path='/profile/:id'>
           <Profile
@@ -57,6 +58,8 @@ function App() {
         <Route exact path='/home'>
           <Home
             user={user}
+            clicked={clicked} 
+            setClicked={setClicked}
           />
         </Route>
 

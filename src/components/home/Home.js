@@ -3,7 +3,7 @@ import PostForm from '../home/PostForm';
 import Post from './Post';
 import styles from '../styles/HomeStyles.css'
 
-function Home({ user }) {
+function Home({ user, clicked, setClicked }) {
     const [posts, setPosts] = useState([]);
 
 
@@ -79,12 +79,24 @@ function Home({ user }) {
 
     return (
         <div className="home">
-                <PostForm
-                    user={user}
-                    posts={posts}
-                    getHomePosts={getHomePosts}
-                    setPosts={setPosts}
-                />
+            {   
+            clicked 
+            
+            ?
+
+            <PostForm
+                user={user}
+                posts={posts}
+                getHomePosts={getHomePosts}
+                setPosts={setPosts}
+                setClicked={setClicked}
+                clicked={clicked}
+            />
+
+            : 
+
+            null
+            }
             <div className="post-card">
                 {posts.length > 0 ? renderPosts() : <h1>Search for friends or make some posts!</h1>}
             </div>

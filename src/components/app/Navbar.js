@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { RiHome2Line, RiHome2Fill, RiLogoutBoxRLine } from 'react-icons/ri'
 import { BsPeopleCircle } from 'react-icons/bs'
+import { CgAddR } from 'react-icons/cg'
 import { CgProfile } from 'react-icons/cg' 
 import styles from '../styles/NavbarStyles.css'
 
 
-function Navbar({ logoutHandler, user }) {
+function Navbar({ logoutHandler, user, setClicked, clicked }) {
     const [search, setSearch] = useState([])
     const [usersArray, setUsersArray] = useState([])
     const [suggestedUsers, setSuggestedUsers] = useState([])
@@ -120,6 +121,7 @@ function Navbar({ logoutHandler, user }) {
                 </form>
             </div>
             <div className="navbar-icons">
+                {location.pathname === "/home" ? <CgAddR className="add-post-button" onClick={() => setClicked(!clicked)}/> : null }
                 <a className="home-button" href="/home">{determineNavBarHomeButton()}</a>
                 <a className="profile-button" href={`/profile/${user.id}`}>{determineNavBarProfileButton()}</a>
                 <a className="logout-button" href="/login" onClick={logoutHandler}><RiLogoutBoxRLine style={{color: 'black'}}/></a>

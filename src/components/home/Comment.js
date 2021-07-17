@@ -18,6 +18,8 @@ function Comment({ comment, user, deleteComment, editComment, post }) {
         )
     }
 
+
+
     const showEditMenu = () => {
         return (editor ? 
             showEditButtons() : 

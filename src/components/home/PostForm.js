@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from '../styles/PostForm.css'
 
-function PostForm({ user, getHomePosts, setPosts }) {
+function PostForm({ user, getHomePosts, setPosts, setClicked, clicked }) {
     const [content, setContent] = useState("");
     const [post_image, setPostImage] = useState(null);
 

@@ -35,7 +35,7 @@
     margin-right: 20px;
     font-size: small;
     margin-left: 10px;
-    cursor: default;
+    cursor: context-menu;
 }
 
 .close {
@@ -92,3 +92,4 @@
 .post-comments {
     margin-top: 20px;
 }
+
