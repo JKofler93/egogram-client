@@ -7,32 +7,37 @@ function UserForm({ user, setUser, profileUserFetch, setIsOpen, isOpen }) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [profile_image, setProfileImage] = useState(null);
-    console.log(user.id)
-    console.log(user)
+    // console.log(user.id)
+    // console.log(user)
 
     const handleSubmit = (e) => {
         e.preventDefault()
 
         const formData = new FormData();
-        formData.append('username', username)
-        formData.append('bio', bio)
-        formData.append('email', email)
-        formData.append('password', password)
-        formData.append('profile_image', profile_image);
+        formData.append('user[username]', username)
+        formData.append('user[bio]', bio)
+        formData.append('user[email]', email)
+        formData.append('user[password]', password)
+        formData.append('user[profile_image]', profile_image);
+        // const obj = {
+        //     username:  username,
+        //     bio: bio,
+        //     email: email,
+        //     password: password
+        // }
         const configObj = {
             method: 'PATCH',
             headers: {
-                'Authorization': `Bearer ${localStorage.getItem("token")}`,
-                'Content-Type': 'application/json',
-                'Accepts': 'application/json'
+                'Authorization': `Bearer ${localStorage.getItem("token")}`
             },
-            body: JSON.stringify(formData)
+            body: formData
         }
 
         fetch(`http://localhost:3000/users/${user.id}`, configObj)
         .then(res => res.json())
         .then(userData => {
             if (userData.user) {
+                console.log("byebug", userData)
                 setUser(userData.user)
                 profileUserFetch()
             }
@@ -54,7 +59,7 @@ function UserForm({ user, setUser, profileUserFetch, setIsOpen, isOpen }) {
                         // placeholder={user.username}
                         type="text"
                         // value={user.username || e.target.value}
-                        onChange={e => {e.target.value === "" ? setUsername(user.username) : setUsername(e.target.value)}}
+                        onChange={e => setUsername(e.target.value)}
                     />
                     <label htmlFor="Username">Username</label>
                 </div>
@@ -64,7 +69,7 @@ function UserForm({ user, setUser, profileUserFetch, setIsOpen, isOpen }) {
                         // placeholder={user.bio}
                         type="text"
                         // value={user.bio || e.target.value}
-                        onChange={e => {e.target.value === "" ? setBio(user.bio) : setBio(e.target.value)}}
+                        onChange={e => {setBio(e.target.value)}}
                     />
                     <label htmlFor="Bio">Bio</label>
                 </div>
@@ -74,7 +79,7 @@ function UserForm({ user, setUser, profileUserFetch, setIsOpen, isOpen }) {
                         // placeholder={user.email}
                         type="text"
                         // value={user.email || e.target.value}
-                        onChange={e => {e.target.value === "" ? setEmail(user.email) : setEmail(e.target.value)}}
+                        onChange={e => {setEmail(e.target.value)}}
                     />
                     <label htmlFor="Email">Email</label>
                 </div>
@@ -102,7 +107,7 @@ function UserForm({ user, setUser, profileUserFetch, setIsOpen, isOpen }) {
                     />
                 </div>
 
-                <button className="form-submit-button" type="submit" onClick={e => setIsOpen(!isOpen)}>Update Info</button>
+                <button className="form-submit-button" type="submit" onClick={handleSubmit}>Update Info</button>
             </form>
         </div>
     )
