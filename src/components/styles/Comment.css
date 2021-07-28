@@ -3,8 +3,8 @@
     justify-content: space-between;
     padding-left: 1.25em;
     font-size: .8725rem;
-    margin: 0em 0.3125em 0.625em 0.3125em;
-    box-shadow: 0.5px 1px 3px grey;
+    /* margin: 0em 0.3125em 0.625em 0.3125em;
+    box-shadow: 0.5px 1px 3px grey; */
 }
 
 .comment-words {

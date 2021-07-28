@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useHistory } from 'react-router-dom';
 import { RiHome2Line, RiHome2Fill, RiLogoutBoxRLine } from 'react-icons/ri'
 import { BsPeopleCircle } from 'react-icons/bs'
 import { CgAddR } from 'react-icons/cg'
@@ -12,6 +12,7 @@ function Navbar({ logoutHandler, user, setClicked, clicked }) {
     const [usersArray, setUsersArray] = useState([])
     const [suggestedUsers, setSuggestedUsers] = useState([])
     const location = useLocation()
+    const history = useHistory()
     // console.log(location)
 
     const determineNavBarHomeButton = () => {
@@ -106,7 +107,7 @@ function Navbar({ logoutHandler, user, setClicked, clicked }) {
     return (
         <div className="navbar">
             <div className="app-logo">
-                <h1 className="egogram-title">Egogram</h1>
+                <h1 className="egogram-title" onClick={() => history.push('/home')}>Egogram</h1>
             </div>
             <div className="search-bar">
                 <form className="search-form">

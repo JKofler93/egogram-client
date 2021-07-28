@@ -40,6 +40,7 @@ function UserForm({ user, setUser, profileUserFetch, setIsOpen, isOpen }) {
                 console.log("byebug", userData)
                 setUser(userData.user)
                 profileUserFetch()
+                setIsOpen(!isOpen)
             }
         })
         .catch(error => console.log(error))

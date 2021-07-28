@@ -1,5 +1,9 @@
 .egogram-title {
     font-family: cursive;
+    cursor: pointer;
+}
+.add-post-button {
+    cursor: pointer;
 }
 
 .navbar {

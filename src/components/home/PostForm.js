@@ -20,10 +20,7 @@ function PostForm({ user, getHomePosts, setPosts, setClicked, clicked }) {
         .then(post => {
             setPosts(post)
             getHomePosts()
-        })
-        .then(() => {
-            setContent("")
-            setPostImage(null)
+            setClicked(!clicked)
         })
     }
 
