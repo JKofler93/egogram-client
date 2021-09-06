@@ -8,7 +8,7 @@ function PostContent({ post, user, likes, postAddLike, postRemoveLike }) {
     const {
         avatar,
         username,
-        image,
+        post_image,
         content,
         time,
         like_number
@@ -28,7 +28,7 @@ function PostContent({ post, user, likes, postAddLike, postRemoveLike }) {
                 </NavLink>
                     <div className="post-img">
                         <img
-                            src={image}
+                            src={post_image}
                             alt="post-img-url"
                             className="post-img-url"
                         />

@@ -5,7 +5,7 @@ function PostPicture({ post }) {
     const [isHovered, setIsHovered] = useState(false);
     // console.log(post)
     
-    const { image, like_number, comment_number } = post;
+    const { post_image, like_number, comment_number } = post;
     
     let hoverImageStyles = {
         filter: "brightness(50%)"
@@ -32,7 +32,7 @@ function PostPicture({ post }) {
                 <img 
                     onMouseOver={() => setIsHovered(true)}
                     className="gallery-image" 
-                    src={image} 
+                    src={post_image} 
                     alt="post-img"
 
                 />
@@ -42,7 +42,7 @@ function PostPicture({ post }) {
                 <img 
                     style={hoverImageStyles}
                     className="gallery-image" 
-                    src={image} 
+                    src={post_image} 
                     alt="post-img"
 
                 />

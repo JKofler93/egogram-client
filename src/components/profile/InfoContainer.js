@@ -6,7 +6,7 @@ function InfoContainer({ user, posts, profileUser, profileFollowers, profileFoll
     const { 
         username,
         bio,
-        user_image,
+        profile_image,
     } = profileUser;
 
     useEffect(() => {
@@ -81,7 +81,7 @@ function InfoContainer({ user, posts, profileUser, profileFollowers, profileFoll
             <div className="container">
                 <div className="profile">
                     <div className="profile-image">
-                        <img src={user_image} alt="profile-pic"/>
+                        <img src={profile_image} alt="profile-pic"/>
                     </div>
                     <div className="profile-user-settings">
                         <h1 className="profile-user-name">{username}</h1>
