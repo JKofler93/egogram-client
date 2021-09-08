@@ -13,6 +13,7 @@ function PostContent({ post, user, likes, postAddLike, postRemoveLike }) {
         time,
         like_number
     } = post
+    console.log(post_image)
     
     return (
             <div className="card-card">

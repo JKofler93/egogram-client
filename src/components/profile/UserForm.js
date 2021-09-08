@@ -14,17 +14,12 @@ function UserForm({ user, setUser, profileUserFetch, setIsOpen, isOpen }) {
         e.preventDefault()
 
         const formData = new FormData();
-        formData.append('user[username]', username)
-        formData.append('user[bio]', bio)
-        formData.append('user[email]', email)
-        formData.append('user[password]', password)
-        formData.append('user[profile_image]', profile_image);
-        // const obj = {
-        //     username:  username,
-        //     bio: bio,
-        //     email: email,
-        //     password: password
-        // }
+        formData.append('username', username)
+        formData.append('bio', bio)
+        formData.append('email', email)
+        formData.append('password', password)
+        formData.append('profile_image', profile_image);
+
         const configObj = {
             method: 'PATCH',
             headers: {

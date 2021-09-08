@@ -8,9 +8,12 @@ function PostForm({ user, getHomePosts, setPosts, setClicked, clicked }) {
     const handleSubmit = (e) => {
         e.preventDefault()
         const formData = new FormData();
-        formData.append('user_id', user.id)
+        formData.append('user_id', user.id);
         formData.append('content', content);
         formData.append('post_image', post_image);
+
+        console.log(formData)
+        // debugger
 
         fetch("http://localhost:3000/posts", {
             method: "POST",
@@ -18,6 +21,7 @@ function PostForm({ user, getHomePosts, setPosts, setClicked, clicked }) {
         })
         .then(res => res.json())
         .then(post => {
+            console.log(post)
             setPosts(post)
             getHomePosts()
             setClicked(!clicked)
