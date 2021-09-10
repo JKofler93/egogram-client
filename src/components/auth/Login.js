@@ -43,7 +43,7 @@ function Login({ loginUser }) {
             password: "123"
         }
 
-        fetch("http://localhost:3000/login", {
+        fetch("https://egogram-api.herokuapp.com/login", {
             method: "POST",
             headers: { 
                 "Content-Type": "application/json",
