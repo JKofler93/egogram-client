@@ -40,7 +40,7 @@ function Login({ loginUser }) {
 
         const formData = {
             username: "nowayjoek",
-            password: "123"
+            password: "qwerty123456"
         }
 
         fetch("https://egogram-api.herokuapp.com/login", {
