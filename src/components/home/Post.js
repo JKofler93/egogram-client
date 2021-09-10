@@ -19,7 +19,7 @@ function Post({ user, post, getHomePosts, deletePost, renderPosts }) {
             },
             body: JSON.stringify(newLikeObj)
         }
-        fetch(`http://localhost:3000/posts/${newLikeObj.post_id}/like`, configObj)
+        fetch(`https://egogram-api.herokuapp.com/posts/${newLikeObj.post_id}/like`, configObj)
             .then(res => res.json())
             .then(post => {
                 getHomePosts()
@@ -39,7 +39,7 @@ function Post({ user, post, getHomePosts, deletePost, renderPosts }) {
                 'Accepts': 'application/json'
             }
         }
-        fetch(`http://localhost:3000/posts/${likeObj.post_id}/unlike/${foundPostLike.id}`, configObj)
+        fetch(`https://egogram-api.herokuapp.com/posts/${likeObj.post_id}/unlike/${foundPostLike.id}`, configObj)
             .then(resp => resp.json())
             .then(post => {
                 getHomePosts()

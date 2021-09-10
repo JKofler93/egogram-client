@@ -27,8 +27,8 @@ function UserForm({ user, setUser, profileUserFetch, setIsOpen, isOpen }) {
             },
             body: formData
         }
-
-        fetch(`http://localhost:3000/users/${user.id}`, configObj)
+        
+        fetch(`https://egogram-api.herokuapp.com/users/${user.id}`, configObj)
         .then(res => res.json())
         .then(userData => {
             if (userData.user) {

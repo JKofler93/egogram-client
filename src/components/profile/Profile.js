@@ -29,7 +29,7 @@ function Profile({ user, setUser }) {
                 'Accepts': 'application/json'
             }
         }
-        fetch(`http://localhost:3000//users/${profileId}/profile`, configObj)
+        fetch(`https://egogram-api.herokuapp.com/users/${profileId}/profile`, configObj)
             .then(resp => resp.json())
             .then(profile => {
                 setPosts(profile.posts)

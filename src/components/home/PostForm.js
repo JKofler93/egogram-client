@@ -15,7 +15,7 @@ function PostForm({ user, getHomePosts, setPosts, setClicked, clicked }) {
         console.log(formData)
         // debugger
 
-        fetch("http://localhost:3000/posts", {
+        fetch("https://egogram-api.herokuapp.com/posts", {
             method: "POST",
             body: formData
         })

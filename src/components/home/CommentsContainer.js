@@ -39,7 +39,7 @@ function CommentsContainer({ post, user }) {
                 'Accepts': 'application/json'
             },
         }
-        fetch(`http://localhost:3000/comments/${commentObj.id}`, configObj)
+        fetch(`https://egogram-api.herokuapp.com/comments/${commentObj.id}`, configObj)
             .then(res => res.json())
             .then(post => {
                 // console.log("im running too!!")
@@ -65,7 +65,7 @@ function CommentsContainer({ post, user }) {
                 },
                 body: JSON.stringify(updateComment)
             }
-            fetch(`http://localhost:3000/comments/${commentEditObj.id}`, configObj)
+            fetch(`https://egogram-api.herokuapp.com/comments/${commentEditObj.id}`, configObj)
                 .then(res => res.json())
                 .then(post => {
                     // console.log("secondFlag", post)
@@ -91,7 +91,7 @@ function CommentsContainer({ post, user }) {
                 },
                 body: JSON.stringify(newComment)
             }
-            fetch("http://localhost:3000/comments", configObj)
+            fetch(`https://egogram-api.herokuapp.com/comments`, configObj)
                 .then(res => res.json())
                 .then(post => {
                     setComments(post.post.comments)

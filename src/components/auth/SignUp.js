@@ -21,7 +21,7 @@ function SignUp({ loginUser }) {
         formData.append('password', password)
         formData.append('profile_image', profile_image);
 
-        fetch("http://localhost:3000/users", {
+        fetch("https://egogram-api.herokuapp.com/users", {
             method: "POST",
             body: formData
         })
@@ -39,11 +39,11 @@ function SignUp({ loginUser }) {
     const wannaLookAround = (e) => {
 
         const formData = {
-            username: "nowayjoek",
-            password: "123"
+            username: "justlooking00",
+            password: "qwerty123456"
         }
 
-        fetch("http://localhost:3000/login", {
+        fetch("https://egogram-api.herokuapp.com/login", {
             method: "POST",
             headers: { 
                 "Content-Type": "application/json",

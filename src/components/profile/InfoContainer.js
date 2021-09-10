@@ -36,7 +36,7 @@ function InfoContainer({ user, posts, profileUser, profileFollowers, profileFoll
             },
             body: JSON.stringify({ follower_id: user.id, followed_user_id: profileUser.id })
         }
-        fetch(`http://localhost:3000/users/${user.id}/follow`, configObj)
+        fetch(`https://egogram-api.herokuapp.com/users/${user.id}/follow`, configObj)
             .then(res => res.json())
             .then(message => {
                 if(message.success) {
@@ -57,7 +57,7 @@ function InfoContainer({ user, posts, profileUser, profileFollowers, profileFoll
             },
             body: JSON.stringify({ follower_id: user.id, followed_user_id: profileUser.id })
         }
-        fetch(`http://localhost:3000/users/${user.id}/unfollow`, configObj)
+        fetch(`https://egogram-api.herokuapp.com/users/${user.id}/unfollow`, configObj)
             .then(res => res.json())
             .then(message => {
                 if(message.success) {

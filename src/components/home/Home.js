@@ -23,7 +23,7 @@ function Home({ user, clicked, setClicked }) {
                 'Accepts': 'application/json'
             }
         }
-        fetch(`http://localhost:3000/users/${user.id}/home`, configObj)
+        fetch(`https://egogram-api.herokuapp.com/users/${user.id}/home`, configObj)
             .then(res => res.json())
             .then(posts => {
                 setPosts(posts.posts)
@@ -65,7 +65,7 @@ function Home({ user, clicked, setClicked }) {
                 },
                 body: JSON.stringify(postObj)
             }
-            fetch(`http://localhost:3000/posts/${postObj.id}`, configObj)
+            fetch(`https://egogram-api.herokuapp.com/posts/${postObj.id}`, configObj)
                 .then(res => res.json())
                 .then(postsObj => {
                     getHomePosts()
