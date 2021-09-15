@@ -39,7 +39,7 @@ function Login({ loginUser }) {
     const wannaLookAround = (e) => {
 
         const formData = {
-            username: "nowayjoek",
+            username: "justlooking00",
             password: "qwerty123456"
         }
 
